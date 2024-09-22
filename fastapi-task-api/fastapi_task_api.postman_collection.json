@@ -1,0 +1,190 @@
+{
+    "info": {
+        "name": "FastAPI Task Management API",
+        "_postman_id": "abcd-1234-efgh-5678",
+        "description": "Postman collection for the FastAPI Task Management API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth - Login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "username",
+                            "value": "testuser"
+                        },
+                        {
+                            "key": "password",
+                            "value": "testpassword"
+                        },
+                        {
+                            "key": "grant_type",
+                            "value": "password"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/token",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "token"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Tasks",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/tasks",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "tasks"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create Task",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"task_name\": \"New Task\", \"description\": \"Task description\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/tasks",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "tasks"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Task by ID",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/tasks/:task_id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "tasks",
+                        ":task_id"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Task",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"task_name\": \"Updated Task\", \"description\": \"Updated description\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/tasks/:task_id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "tasks",
+                        ":task_id"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Task",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/tasks/:task_id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "tasks",
+                        ":task_id"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8000"
+        },
+        {
+            "key": "access_token",
+            "value": ""
+        }
+    ]
+}
