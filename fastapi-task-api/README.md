@@ -40,7 +40,7 @@ This FastAPI project provides a simple task management API that logs each reques
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/fastapi-task-api.git
+   git clone https://github.com/jahp87/fastapi-task-api.git
    cd fastapi-task-api
    ```
 
@@ -74,7 +74,7 @@ This FastAPI project provides a simple task management API that logs each reques
 6. Run the FastAPI application:
 
    ```bash
-   uvicorn main:app --reload
+   uvicorn app.main:app --reload
    ```
 
 ---
